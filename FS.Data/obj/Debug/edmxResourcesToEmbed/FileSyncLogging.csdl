@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FileSyncLoggingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AlphaLog">
+    <Key>
+      <PropertyRef Name="LogId" />
+    </Key>
+    <Property Name="LogId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CurrentTime" Type="Time" Nullable="false" Precision="0" />
+    <Property Name="CurrentDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="UserName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LogType" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LogEntry" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="FileOperation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Histories" Relationship="Self.FK_History_FileOperation" FromRole="FileOperation" ToRole="History" />
+  </EntityType>
+  <EntityType Name="History">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LogTime" Type="Time" Nullable="false" Precision="0" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="LogDate" Type="DateTime" Nullable="false" Precision="0" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="LogTypeId" Type="Int32" Nullable="false" />
+    <Property Name="InteractionTypeId" Type="Int32" Nullable="false" />
+    <Property Name="Domain" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PCName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FileName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FileOperationId" Type="Int32" />
+    <Property Name="ErrorMsg" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="FileOperation" Relationship="Self.FK_History_FileOperation" FromRole="History" ToRole="FileOperation" />
+    <NavigationProperty Name="InteractionType" Relationship="Self.FK_History_InteractionType" FromRole="History" ToRole="InteractionType" />
+    <NavigationProperty Name="LogType" Relationship="Self.FK_History_LogType" FromRole="History" ToRole="LogType" />
+  </EntityType>
+  <EntityType Name="InteractionType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Histories" Relationship="Self.FK_History_InteractionType" FromRole="InteractionType" ToRole="History" />
+  </EntityType>
+  <EntityType Name="LogType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Histories" Relationship="Self.FK_History_LogType" FromRole="LogType" ToRole="History" />
+  </EntityType>
+  <Association Name="FK_History_FileOperation">
+    <End Role="FileOperation" Type="Self.FileOperation" Multiplicity="0..1" />
+    <End Role="History" Type="Self.History" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FileOperation">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="History">
+        <PropertyRef Name="FileOperationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_History_InteractionType">
+    <End Role="InteractionType" Type="Self.InteractionType" Multiplicity="1" />
+    <End Role="History" Type="Self.History" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InteractionType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="History">
+        <PropertyRef Name="InteractionTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_History_LogType">
+    <End Role="LogType" Type="Self.LogType" Multiplicity="1" />
+    <End Role="History" Type="Self.History" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LogType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="History">
+        <PropertyRef Name="LogTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="FileSyncLoggingEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AlphaLogs" EntityType="Self.AlphaLog" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="FileOperations" EntityType="Self.FileOperation" />
+    <EntitySet Name="Histories" EntityType="Self.History" />
+    <EntitySet Name="InteractionTypes" EntityType="Self.InteractionType" />
+    <EntitySet Name="LogTypes" EntityType="Self.LogType" />
+    <AssociationSet Name="FK_History_FileOperation" Association="Self.FK_History_FileOperation">
+      <End Role="FileOperation" EntitySet="FileOperations" />
+      <End Role="History" EntitySet="Histories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_History_InteractionType" Association="Self.FK_History_InteractionType">
+      <End Role="InteractionType" EntitySet="InteractionTypes" />
+      <End Role="History" EntitySet="Histories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_History_LogType" Association="Self.FK_History_LogType">
+      <End Role="LogType" EntitySet="LogTypes" />
+      <End Role="History" EntitySet="Histories" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

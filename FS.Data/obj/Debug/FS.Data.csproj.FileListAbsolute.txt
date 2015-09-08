@@ -1,0 +1,9 @@
+C:\Users\drmurtha\FileSyncSrc\FyleSyncDev\FS.Data\bin\Debug\FS.Data.dll.config
+C:\Users\drmurtha\FileSyncSrc\FyleSyncDev\FS.Data\bin\Debug\FS.Data.dll
+C:\Users\drmurtha\FileSyncSrc\FyleSyncDev\FS.Data\bin\Debug\FS.Data.pdb
+C:\Users\drmurtha\FileSyncSrc\FyleSyncDev\FS.Data\bin\Debug\EntityFramework.dll
+C:\Users\drmurtha\FileSyncSrc\FyleSyncDev\FS.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\drmurtha\FileSyncSrc\FyleSyncDev\FS.Data\bin\Debug\EntityFramework.xml
+C:\Users\drmurtha\FileSyncSrc\FyleSyncDev\FS.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\drmurtha\FileSyncSrc\FyleSyncDev\FS.Data\obj\Debug\FS.Data.dll
+C:\Users\drmurtha\FileSyncSrc\FyleSyncDev\FS.Data\obj\Debug\FS.Data.pdb

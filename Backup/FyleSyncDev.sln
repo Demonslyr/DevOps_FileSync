@@ -1,0 +1,67 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebFrontEnd", "WebFrontEnd\WebFrontEnd.csproj", "{4141714D-7267-4F37-AFC1-2D845382362A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebFrontEnd.Tests", "WebFrontEnd.Tests\WebFrontEnd.Tests.csproj", "{43B5BA2A-768E-4AA4-BE4F-390BD89F962F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FS.DAL", "FS.DAL\FS.DAL.csproj", "{32BFBBE1-6616-47C0-9468-F414F195A0D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FS.Business", "FS.Business\FS.Business.csproj", "{69B5D352-0934-40B1-B498-18EE3C097EEF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FS.Data", "FS.Data\FS.Data.csproj", "{D858B9B4-FE63-4FD9-9D1D-3FA12BCEF730}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 6
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://sdbvtfspr-mts01:8080/tfs/vinsolutionscollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = WebFrontEnd.Tests\\WebFrontEnd.Tests.csproj
+		SccProjectName1 = WebFrontEnd.Tests
+		SccLocalPath1 = WebFrontEnd.Tests
+		SccProjectUniqueName2 = WebFrontEnd\\WebFrontEnd.csproj
+		SccProjectName2 = WebFrontEnd
+		SccLocalPath2 = WebFrontEnd
+		SccProjectUniqueName3 = FS.Business\\FS.Business.csproj
+		SccProjectName3 = FS.Business
+		SccLocalPath3 = FS.Business
+		SccProjectUniqueName4 = FS.DAL\\FS.DAL.csproj
+		SccProjectName4 = FS.DAL
+		SccLocalPath4 = FS.DAL
+		SccProjectUniqueName5 = FS.Data\\FS.Data.csproj
+		SccProjectName5 = FS.Data
+		SccLocalPath5 = FS.Data
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4141714D-7267-4F37-AFC1-2D845382362A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4141714D-7267-4F37-AFC1-2D845382362A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4141714D-7267-4F37-AFC1-2D845382362A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4141714D-7267-4F37-AFC1-2D845382362A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43B5BA2A-768E-4AA4-BE4F-390BD89F962F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43B5BA2A-768E-4AA4-BE4F-390BD89F962F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43B5BA2A-768E-4AA4-BE4F-390BD89F962F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43B5BA2A-768E-4AA4-BE4F-390BD89F962F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32BFBBE1-6616-47C0-9468-F414F195A0D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32BFBBE1-6616-47C0-9468-F414F195A0D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32BFBBE1-6616-47C0-9468-F414F195A0D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32BFBBE1-6616-47C0-9468-F414F195A0D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69B5D352-0934-40B1-B498-18EE3C097EEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69B5D352-0934-40B1-B498-18EE3C097EEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69B5D352-0934-40B1-B498-18EE3C097EEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69B5D352-0934-40B1-B498-18EE3C097EEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D858B9B4-FE63-4FD9-9D1D-3FA12BCEF730}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D858B9B4-FE63-4FD9-9D1D-3FA12BCEF730}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D858B9B4-FE63-4FD9-9D1D-3FA12BCEF730}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D858B9B4-FE63-4FD9-9D1D-3FA12BCEF730}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
